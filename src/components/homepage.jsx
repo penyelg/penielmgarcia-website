@@ -1,0 +1,124 @@
+import { useState } from "react"
+import "@fortawesome/fontawesome-free/css/all.min.css"
+import "../App.css"
+import pic1 from '../assets/nyel.jpg'
+
+export default function HomePage() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    document.body.classList.toggle("nav-open", !isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    document.body.classList.remove("nav-open");
+  };
+
+  const handleNavClick = (event, selector) => {
+    if (selector) {
+      const section = document.querySelector(selector);
+      if (section) {
+        event.preventDefault();
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    if (isOpen) {
+      closeMenu();
+    }
+  };
+
+  return (
+    <div>
+      {/* Header / Navbar */}
+      <header className="navbar">
+        <a
+          href="#home"
+          className="logo"
+          onClick={(event) => handleNavClick(event, "#home")}
+        >
+          Peniel
+        </a>
+
+        <button
+          className={`menu-toggle ${isOpen ? "open" : ""}`}
+          aria-expanded={isOpen}
+          aria-controls="primary-navigation"
+          onClick={toggleMenu}
+        >
+          <span className="menu-icon"></span>
+        </button>
+
+        <nav
+          id="primary-navigation"
+          className={`nav-links ${isOpen ? "open" : ""}`}
+        >
+          <a
+            href="#home"
+            className="active"
+            onClick={(event) => handleNavClick(event, "#home")}
+          >
+            Home
+          </a>
+          <a
+            href="#services"
+            onClick={(event) => handleNavClick(event, "#services")}
+          >
+            Services
+          </a>
+          <a href="#" onClick={isOpen ? closeMenu : undefined}>Skills</a>
+          <a href="#" onClick={isOpen ? closeMenu : undefined}>Education</a>
+          <a href="#" onClick={isOpen ? closeMenu : undefined}>Experience</a>
+          <a href="#" onClick={isOpen ? closeMenu : undefined}>Contact</a>
+        </nav>
+      </header>
+
+      {/* Home Section */}
+      <section className="home" id="home">
+        <div className="home-img">
+          <img src={pic1} alt="img" />
+        </div>
+
+        <div className="home-content">
+          <h1>
+            Hi, It's <span>Peniel</span>
+          </h1>
+          <h3 className="typing-text">
+            <span></span>
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            asperiores excepturi expedita nihil, earum eaque. Sunt, natus! Sint
+            in corrupti consequuntur dolorum vitae, mollitia culpa, earum optio
+            blanditiis, quisquam ipsum!
+          </p>
+
+          {/* Social Icons */}
+          <div className="social-icons">
+            <a href="#">
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#">
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a href="#">
+              <i className="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i className="fa-brands fa-facebook"></i>
+            </a>
+          </div>
+
+          <a href="#" className="btn" onClick={isOpen ? closeMenu : undefined}>
+            Hire me
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}
