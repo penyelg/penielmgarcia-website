@@ -1,7 +1,9 @@
-import { useState } from "react"
-import "@fortawesome/fontawesome-free/css/all.min.css"
+import { useState, useRef, useEffect } from "react"
 import "../App.css"
-import pic1 from '../assets/nyel.jpg'
+
+// Import images
+import optimizedImage from '../assets/nyel-optimized.jpg';
+import fallbackImage from '../assets/nyel.jpg';
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +80,30 @@ export default function HomePage() {
       {/* Home Section */}
       <section className="home" id="home">
         <div className="home-img">
-          <img src={pic1} alt="img" />
+          <picture>
+            <source
+              srcSet={optimizedImage}
+              type="image/jpg"
+            />
+            <img
+              src={fallbackImage}
+              alt="Peniel Garcia"
+              className="hero-image"
+              width="400"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxWidth: '400px',
+                maxHeight: '500px',
+                objectFit: 'cover',
+                borderRadius: '8px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              }}
+            />
+          </picture>
         </div>
 
         <div className="home-content">

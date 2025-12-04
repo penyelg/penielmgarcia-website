@@ -7,9 +7,8 @@
     <meta name="theme-color" content="#000000" />
     
     <!-- Preload critical resources -->
-    <link rel="preload" as="image" href="/src/assets/nyel.jpg" />
+    <link rel="preload" as="image" href="/src/assets/nyel.jpg" imagesrcset="" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -17,6 +16,9 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="/src/App.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/src/App.css" /></noscript>
+    
+    <!-- Load Font Awesome with font-display: swap for better performance -->
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'" />
     
     <title>Peniel Garcia - Web Developer</title>
     
@@ -50,8 +52,5 @@
     
     <!-- Defer non-critical JavaScript -->
     <script type="module" src="/src/main.jsx" defer></script>
-    
-    <!-- Load Font Awesome with defer -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" defer></script>
   </body>
 </html>
