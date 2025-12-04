@@ -89,10 +89,10 @@ export default function HomePage() {
             <span></span>
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            asperiores excepturi expedita nihil, earum eaque. Sunt, natus! Sint
-            in corrupti consequuntur dolorum vitae, mollitia culpa, earum optio
-            blanditiis, quisquam ipsum!
+            I’m a passionate and dedicated developer focused on creating clean, efficient, and user-friendly digital experiences. 
+            I enjoy solving real-world problems through code and continuously improving my skills to bring ideas to life. 
+            Whether it’s building modern web interfaces or crafting smooth user journeys, I aim to deliver work that is both 
+            functional and visually engaging.
           </p>
 
           {/* Social Icons */}
