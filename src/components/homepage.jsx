@@ -101,10 +101,15 @@ export default function HomePage() {
                 maxHeight: '500px',
                 objectFit: 'cover',
                 borderRadius: '8px',
-                boxShadow: '0 0 15px 5px hsl(38, 87%, 69%)',
-                transition: 'box-shadow 0.3s ease-in-out',
+                border: '1px solid rgba(245, 194, 107, 0.25)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
                 position: 'relative',
-                zIndex: 1
+                zIndex: 1,
+                ':hover': {
+                  transform: 'translateY(-6px)',
+                  borderColor: '#f5c26b',
+                  boxShadow: '0 0 30px rgba(245, 194, 107, 0.2)'
+                }
               }}
             />
           </picture>
