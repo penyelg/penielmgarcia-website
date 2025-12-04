@@ -8,6 +8,7 @@ import fallbackImage from '../assets/nyel.jpg';
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -60,21 +61,68 @@ export default function HomePage() {
         >
           <a
             href="#home"
-            className="active"
-            onClick={(event) => handleNavClick(event, "#home")}
+            className={activeSection === 'home' ? 'active' : ''}
+            onClick={(event) => {
+              handleNavClick(event, "#home");
+              setActiveSection('home');
+            }}
           >
             Home
           </a>
           <a
             href="#services"
-            onClick={(event) => handleNavClick(event, "#services")}
+            className={activeSection === 'services' ? 'active' : ''}
+            onClick={(event) => {
+              handleNavClick(event, "#services");
+              setActiveSection('services');
+            }}
           >
             Services
           </a>
-          <a href="#" onClick={isOpen ? closeMenu : undefined}>Skills</a>
-          <a href="#" onClick={isOpen ? closeMenu : undefined}>Education</a>
-          <a href="#" onClick={isOpen ? closeMenu : undefined}>Experience</a>
-          <a href="#" onClick={isOpen ? closeMenu : undefined}>Contact</a>
+          <a 
+            href="#" 
+            className={activeSection === 'skills' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection('skills');
+              if (isOpen) closeMenu();
+            }}
+          >
+            Skills
+          </a>
+          <a 
+            href="#" 
+            className={activeSection === 'education' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection('education');
+              if (isOpen) closeMenu();
+            }}
+          >
+            Education
+          </a>
+          <a 
+            href="#" 
+            className={activeSection === 'experience' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection('experience');
+              if (isOpen) closeMenu();
+            }}
+          >
+            Experience
+          </a>
+          <a 
+            href="#" 
+            className={activeSection === 'contact' ? 'active' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection('contact');
+              if (isOpen) closeMenu();
+            }}
+          >
+            Contact
+          </a>
         </nav>
       </header>
 
@@ -100,7 +148,7 @@ export default function HomePage() {
                 maxWidth: '400px',
                 maxHeight: '500px',
                 objectFit: 'cover',
-                borderRadius: '8px',
+                borderRadius: '10px',
                 border: '1px solid rgba(245, 194, 107, 0.25)',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
                 position: 'relative',
