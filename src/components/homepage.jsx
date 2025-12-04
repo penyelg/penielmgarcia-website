@@ -101,7 +101,10 @@ export default function HomePage() {
                 maxHeight: '500px',
                 objectFit: 'cover',
                 borderRadius: '8px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 0 15px 5px hsl(38, 87%, 69%)',
+                transition: 'box-shadow 0.3s ease-in-out',
+                position: 'relative',
+                zIndex: 1
               }}
             />
           </picture>
